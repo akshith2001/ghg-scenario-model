@@ -1,0 +1,17 @@
+{
+  "baseline": {},
+  "balanced_transition": {
+    "electricity": {"activity_change_pct": -10, "factor_change_pct": -35},
+    "heating": {"activity_change_pct": -20, "factor_change_pct": -10},
+    "transport": {"activity_change_pct": -15, "factor_change_pct": -30},
+    "waste": {"activity_change_pct": -25, "factor_change_pct": -10},
+    "industry": {"activity_change_pct": -12, "factor_change_pct": -8}
+  },
+  "rapid_decarbonisation": {
+    "electricity": {"activity_change_pct": -20, "factor_change_pct": -65},
+    "heating": {"activity_change_pct": -35, "factor_change_pct": -35},
+    "transport": {"activity_change_pct": -30, "factor_change_pct": -55},
+    "waste": {"activity_change_pct": -45, "factor_change_pct": -25},
+    "industry": {"activity_change_pct": -25, "factor_change_pct": -20}
+  }
+}

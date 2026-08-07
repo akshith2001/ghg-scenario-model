@@ -1,0 +1,6 @@
+activity_id,sector,activity_name,activity_value,activity_unit,emission_factor,factor_unit,factor_year,factor_source,activity_uncertainty_pct,factor_uncertainty_pct
+E001,electricity,purchased electricity,125000,kWh,0.18000,kg CO2e/kWh,illustrative,Synthetic demonstration factor - replace before real use,3,5
+H001,heating,natural gas heating,80000,kWh,0.18300,kg CO2e/kWh,illustrative,Synthetic demonstration factor - replace before real use,4,5
+T001,transport,passenger car travel,60000,km,0.17000,kg CO2e/km,illustrative,Synthetic demonstration factor - replace before real use,8,10
+W001,waste,mixed waste,22000,kg,0.45000,kg CO2e/kg,illustrative,Synthetic demonstration factor - replace before real use,10,15
+I001,industry,process activity,50000,unit,0.30000,kg CO2e/unit,illustrative,Synthetic demonstration factor - replace before real use,12,20
