@@ -29,10 +29,15 @@ python -m venv .venv
 .venv\Scripts\activate
 pip install -e .
 ghg-model --activities data/sample_activities.csv --scenarios data/scenarios.json --output outputs/results.csv
+ghg-chart
 python -m unittest discover -s tests -v
 ```
 
 On macOS/Linux, activate the environment with `source .venv/bin/activate`.
+
+## Example output
+
+![Scenario emissions comparison](figures/scenario_totals.png)
 
 ## Data and provenance
 
