@@ -1,7 +1,7 @@
 {
   "baseline": {},
   "balanced_transition": {
-    "electricity": {"activity_change_pct": -10, "factor_change_pct": -35},
+    "electricity": {"activity_change_pct": -15, "factor_change_pct": -35},
     "heating": {"activity_change_pct": -20, "factor_change_pct": -10},
     "transport": {"activity_change_pct": -15, "factor_change_pct": -30},
     "waste": {"activity_change_pct": -25, "factor_change_pct": -10},
