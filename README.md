@@ -39,6 +39,34 @@ On macOS/Linux, activate the environment with `source .venv/bin/activate`.
 
 ![Scenario emissions comparison](figures/scenario_totals.png)
 
+## Hospitality water-use case study
+
+The repository also includes a small case study motivated by firsthand observation of
+restaurant operations: taps may remain running during repeated utensil-rinsing tasks.
+This is treated as a research question, not as a claim about a named employer or a
+formally measured site.
+
+The demonstration asks: **How much water and associated water-system emissions could
+be avoided by reducing unnecessary tap-running time while preserving food-safety and
+service requirements?**
+
+```bash
+ghg-water-case
+```
+
+The default example uses transparent, editable assumptions:
+
+- tap flow: 6 litres per minute (illustrative; measure before real use)
+- running time: 7.5 hours per operating day (midpoint of a 7-8 hour observation)
+- operating days: 300 per year (illustrative)
+- avoidable-use reduction: 75% (scenario assumption, not a forecast)
+
+It applies the UK Government 2026 water-supply and water-treatment factors and
+reports supply plus wastewater-treatment emissions. It intentionally excludes water
+heating because water temperature and heating technology were not measured.
+
+![Illustrative hospitality water case](figures/hospitality_water_case.svg)
+
 ## Data and provenance
 
 `data/sample_activities.csv` contains a synthetic demonstration dataset. Its emission factors are illustrative and must not be used for formal reporting. The model keeps factor year, source, unit, and uncertainty alongside every record so authoritative factors can be substituted without changing the code.
@@ -46,6 +74,8 @@ On macOS/Linux, activate the environment with `source .venv/bin/activate`.
 For a real study, use the latest UK Government greenhouse-gas conversion-factor flat file or another jurisdiction-appropriate inventory source, document all mapping decisions, and retain the original source version. Relevant methodological foundations include:
 
 - UK Government greenhouse-gas reporting conversion factors: https://www.gov.uk/government/collections/government-conversion-factors-for-company-reporting
+- UK Government conversion factors 2026: https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026
+- UK Government 2026 methodology report: https://assets.publishing.service.gov.uk/media/6a2940543b15d05a7ce3202e/2026-GHG-conversion-factors-methodology-report.pdf
 - 2006 IPCC Guidelines for National Greenhouse Gas Inventories: https://www.ipcc-nggip.iges.or.jp/public/2006gl/
 
 ## Repository structure
