@@ -60,10 +60,16 @@ The default example uses transparent, editable assumptions:
 - running time: 7.5 hours per operating day (midpoint of a 7-8 hour observation)
 - operating days: 300 per year (illustrative)
 - avoidable-use reduction: 75% (scenario assumption, not a forecast)
+- hot-water share: 50% (illustrative)
+- inlet/outlet temperature: 12/45 degrees C (illustrative)
+- heater efficiency: 90% and heating factor: 0.18231 kg CO2e/kWh
 
-It applies the UK Government 2026 water-supply and water-treatment factors and
-reports supply plus wastewater-treatment emissions. It intentionally excludes water
-heating because water temperature and heating technology were not measured.
+It applies UK Government 2026 water-supply, water-treatment and natural-gas factors.
+Water-heating demand is calculated from water mass, specific heat capacity,
+temperature rise and heater efficiency. Water temperature, hot-water share and heater
+technology were not measured, so the defaults are explicitly illustrative and the CLI
+allows every value to be replaced. Water-system and heating emissions are reported
+separately to keep the system boundary auditable.
 
 ![Illustrative hospitality water case](figures/hospitality_water_case.svg)
 
