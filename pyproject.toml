@@ -14,6 +14,7 @@ dependencies = ["matplotlib>=3.11"]
 ghg-model = "ghg_model.cli:main"
 ghg-chart = "ghg_model.chart:main"
 ghg-water-case = "ghg_model.hospitality_water:main"
+ghg-sensitivity = "ghg_model.sensitivity:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

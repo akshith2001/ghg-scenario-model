@@ -73,6 +73,24 @@ separately to keep the system boundary auditable.
 
 ![Illustrative hospitality water case](figures/hospitality_water_case.svg)
 
+### One-at-a-time sensitivity analysis
+
+The sensitivity command varies one input at a time around the base case, recalculates
+potential total emissions savings and ranks parameters by their largest percentage
+effect on the output:
+
+```bash
+ghg-sensitivity --variation-pct 10
+```
+
+The default ±10% range is a local diagnostic, not a confidence interval. It answers
+which inputs the model responds to most strongly near the selected base case. It does
+not represent correlations, probability distributions or uncertainty in the observed
+7-8 hour running-time statement. Those questions require a separate uncertainty
+analysis.
+
+![Hospitality case sensitivity](figures/hospitality_sensitivity.svg)
+
 ## Data and provenance
 
 `data/sample_activities.csv` contains a synthetic demonstration dataset. Its emission factors are illustrative and must not be used for formal reporting. The model keeps factor year, source, unit, and uncertainty alongside every record so authoritative factors can be substituted without changing the code.
