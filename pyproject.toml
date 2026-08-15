@@ -15,6 +15,7 @@ ghg-model = "ghg_model.cli:main"
 ghg-chart = "ghg_model.chart:main"
 ghg-water-case = "ghg_model.hospitality_water:main"
 ghg-sensitivity = "ghg_model.sensitivity:main"
+ghg-monte-carlo = "ghg_model.monte_carlo:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

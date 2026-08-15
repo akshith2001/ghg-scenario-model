@@ -91,6 +91,24 @@ analysis.
 
 ![Hospitality case sensitivity](figures/hospitality_sensitivity.svg)
 
+### Monte Carlo uncertainty analysis
+
+The Monte Carlo command samples transparent triangular ranges for flow, running time,
+operating days, avoidable use, hot-water share, temperatures, heater efficiency and
+the heating emission factor:
+
+```bash
+ghg-monte-carlo --samples 10000 --seed 2026
+```
+
+The fixed seed makes results reproducible. Inputs are currently sampled independently,
+which is a simplifying assumption because real operating variables may be correlated.
+The reported P5-P95 interval is conditional on the selected ranges and distribution
+shapes; it is not a measured confidence interval and should be updated when field data
+become available.
+
+![Hospitality case Monte Carlo uncertainty](figures/hospitality_monte_carlo.svg)
+
 ## Data and provenance
 
 `data/sample_activities.csv` contains a synthetic demonstration dataset. Its emission factors are illustrative and must not be used for formal reporting. The model keeps factor year, source, unit, and uncertainty alongside every record so authoritative factors can be substituted without changing the code.
