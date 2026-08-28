@@ -1,12 +1,43 @@
 # Cross-Sector Greenhouse Gas Scenario Model
 
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](pyproject.toml)
+[![Research status](https://img.shields.io/badge/status-research%20prototype-167D83)](#ethical-and-reproducibility-note)
+
 A small, transparent Python model for estimating greenhouse-gas emissions and testing reduction scenarios across electricity, heating, transport, waste, and industrial activity.
 
 This portfolio project was created to demonstrate reproducible modelling, scenario design, uncertainty analysis, documentation, and version-control-ready research practice. It is a prototype, not a regulatory carbon-accounting tool.
 
+**Research agenda:**
+[`Transparent Cross-Sector Emissions Scenarios Under Parameter Uncertainty`](docs/research_agenda.md)
+
+## At a glance
+
+| Research element | Current implementation |
+|---|---|
+| System | Electricity, heating, transport, waste and industrial modules |
+| Core method | Auditable `activity × emission factor` calculations |
+| Intervention analysis | Editable baseline, balanced-transition and rapid-decarbonisation scenarios |
+| Uncertainty | One-at-a-time sensitivity and reproducible Monte Carlo simulation |
+| Applied case | Hospitality water-energy-emissions scenario |
+| Interpretation | Conditional scenario estimates, not measurements or forecasts |
+
 ## Research question
 
 How do different sector-level interventions change total annual greenhouse-gas emissions, and how sensitive are the results to uncertainty in activity data and emission factors?
+
+## Research contribution
+
+The project's research contribution is a compact, provenance-first workflow for
+testing whether mitigation priorities remain stable when activity data,
+emission factors, uncertainty assumptions and system boundaries change. The
+goal is not to produce the largest headline reduction. It is to show which
+conclusions are reproducible, which inputs dominate uncertainty and when an
+apparently clear intervention ranking is too unstable to defend.
+
+The next study phase adds a versioned factor registry, correlated uncertainty,
+rank-reversal analysis and reconciliation against an independently prepared
+inventory. See the [`research agenda`](docs/research_agenda.md) for the proposed
+questions, hypotheses and publication boundaries.
 
 ## Method
 
@@ -137,6 +168,8 @@ outputs/               Generated results (created when the model runs)
 - Model correlations and probability distributions using Monte Carlo simulation.
 - Validate sector mappings and scenario assumptions with domain experts.
 - Add optimisation to identify least-cost pathways subject to an emissions target.
+- Test whether intervention rankings reverse across plausible input distributions.
+- Reconcile one complete case against an independently prepared inventory.
 
 ## Ethical and reproducibility note
 
