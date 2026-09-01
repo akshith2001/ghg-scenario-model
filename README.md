@@ -19,6 +19,7 @@ This portfolio project was created to demonstrate reproducible modelling, scenar
 | Intervention analysis | Editable baseline, balanced-transition and rapid-decarbonisation scenarios |
 | Uncertainty | One-at-a-time sensitivity and reproducible Monte Carlo simulation |
 | Applied case | Hospitality water-energy-emissions scenario |
+| Scientific ML | Reproducible data-only vs physics-informed neural benchmark |
 | Interpretation | Conditional scenario estimates, not measurements or forecasts |
 
 ## Research question
@@ -139,6 +140,29 @@ shapes; it is not a measured confidence interval and should be updated when fiel
 become available.
 
 ![Hospitality case Monte Carlo uncertainty](figures/hospitality_monte_carlo.svg)
+
+### Scientific-machine-learning foundation experiment
+
+The repository includes a compact neural-surrogate benchmark that compares a
+data-only objective with a physics-informed objective containing the known
+`emissions = activity × emission factor` relationship. It evaluates both held-out
+interpolation and deliberate extrapolation beyond the synthetic training range:
+
+```bash
+ghg-sciml
+```
+
+![Synthetic scientific-ML benchmark](figures/sciml_benchmark.svg)
+
+This is an educational foundation experiment on synthetic data, not industrial
+validation or evidence of expertise with scientific foundation models. The complete
+design and progression path are documented in
+[`docs/scientific_ml_benchmark.md`](docs/scientific_ml_benchmark.md).
+
+The locked default run reduced interpolation RMSE by 35.8% and extrapolation RMSE by
+12.2% relative to the identical data-only network. Extrapolation error remained high,
+which is reported as a negative result and a reason to study stronger architectures,
+uncertainty methods and genuine scientific datasets.
 
 ## Data and provenance
 

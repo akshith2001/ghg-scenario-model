@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Transparent cross-sector greenhouse-gas scenario modelling prototype"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ["matplotlib>=3.11"]
+dependencies = ["matplotlib>=3.11", "numpy>=2.0"]
 
 [project.scripts]
 ghg-model = "ghg_model.cli:main"
@@ -16,6 +16,7 @@ ghg-chart = "ghg_model.chart:main"
 ghg-water-case = "ghg_model.hospitality_water:main"
 ghg-sensitivity = "ghg_model.sensitivity:main"
 ghg-monte-carlo = "ghg_model.monte_carlo:main"
+ghg-sciml = "ghg_model.sciml:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
