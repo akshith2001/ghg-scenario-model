@@ -20,6 +20,7 @@ This portfolio project was created to demonstrate reproducible modelling, scenar
 | Uncertainty | One-at-a-time sensitivity and reproducible Monte Carlo simulation |
 | Applied case | Hospitality water-energy-emissions scenario |
 | Scientific ML | Reproducible data-only vs physics-informed neural benchmark |
+| Real-data validation | Held-out EPA eGRID natural-gas plant comparison |
 | Interpretation | Conditional scenario estimates, not measurements or forecasts |
 
 ## Research question
@@ -163,6 +164,29 @@ The locked default run reduced interpolation RMSE by 35.8% and extrapolation RMS
 12.2% relative to the identical data-only network. Extrapolation error remained high,
 which is reported as a negative result and a reason to study stronger architectures,
 uncertainty methods and genuine scientific datasets.
+
+## First real-data validation
+
+The first real-data benchmark compares estimates against reported annual CO2 from
+held-out natural-gas plants in an official EPA eGRID-derived 2018 layer. It excludes
+target-derived emission-rate fields and uses the EPA GHG Emission Factors Hub value
+of 53.06 kg CO2/MMBtu as an external physical constraint:
+
+```bash
+ghg-real-validation
+```
+
+![Held-out EPA eGRID validation](figures/egrid_validation.svg)
+
+This is an unseen-plant test within one historical US data year. It is not temporal,
+contemporary, European or cross-sector validation. The locked design, provenance,
+leakage controls and interpretation boundaries are documented in
+[`docs/real_data_validation.md`](docs/real_data_validation.md).
+
+On the locked 320-plant holdout, the physics-guided residual model reduced
+median absolute percentage error from 1.88% to 1.43% relative to the data-only
+ridge model. Its RMSE was 0.06% worse, so the project reports the improvement
+in typical relative error without claiming that the hybrid wins every metric.
 
 ## Data and provenance
 

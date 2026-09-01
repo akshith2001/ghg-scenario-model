@@ -17,6 +17,7 @@ ghg-water-case = "ghg_model.hospitality_water:main"
 ghg-sensitivity = "ghg_model.sensitivity:main"
 ghg-monte-carlo = "ghg_model.monte_carlo:main"
 ghg-sciml = "ghg_model.sciml:main"
+ghg-real-validation = "ghg_model.real_validation:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
