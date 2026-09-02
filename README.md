@@ -154,6 +154,36 @@ interpolation and deliberate extrapolation beyond the synthetic training range:
 ```bash
 ghg-sciml
 ```
+### Least-cost abatement pathway optimisation
+
+[#least-cost-abatement-pathway-optimisation](#least-cost-abatement-pathway-optimisation)
+
+The optimisation command finds the lowest-cost combination of candidate
+measures that meets a stated emissions-reduction target, treating each
+measure as an indivisible (0/1) adoption decision solved via mixed-integer
+linear programming. A companion rank-reversal analysis perturbs every
+measure's cost and abatement within its stated uncertainty and reports how
+often each measure survives in the optimal set — distinguishing genuinely
+robust choices from ones that only look optimal under one set of point
+estimates.
+
+\`\`\`
+ghg-optimize --options data/abatement_options.json --target-kgco2e 2500 --rank-reversal
+\`\`\`
+
+On the illustrative eight-measure dataset, a 2,500 kg CO2e/year target is
+met by five measures at roughly £20/year net cost. Under 1,000 Monte Carlo
+perturbations, the two net-saving measures are selected in 100% of trials,
+while the single largest-abatement measure in the dataset is selected in
+under 2% of trials. This is a demonstration of the method's ability to
+separate robust choices from point-estimate artefacts, not a real
+efficiency finding for any venue. All costs and abatement figures are
+illustrative placeholders. See
+[`docs/optimization_pathway.md`](docs/optimization_pathway.md) for the
+complete method, worked example and limitations.
+
+[![Illustrative marginal abatement cost curve](figures/macc_curve.svg)](figures/macc_curve.svg)
+```
 
 ![Synthetic scientific-ML benchmark](figures/sciml_benchmark.svg)
 
@@ -217,7 +247,6 @@ outputs/               Generated results (created when the model runs)
 - Add spatial and hourly resolution for integration with an energy-system model.
 - Model correlations and probability distributions using Monte Carlo simulation.
 - Validate sector mappings and scenario assumptions with domain experts.
-- Add optimisation to identify least-cost pathways subject to an emissions target.
 - Test whether intervention rankings reverse across plausible input distributions.
 - Reconcile one complete case against an independently prepared inventory.
 
