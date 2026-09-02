@@ -13,6 +13,7 @@ dependencies = ["matplotlib>=3.11", "numpy>=2.0"]
 [project.scripts]
 ghg-model = "ghg_model.cli:main"
 ghg-chart = "ghg_model.chart:main"
+ghg-optimize = "ghg_model.optimization:_cli"
 ghg-water-case = "ghg_model.hospitality_water:main"
 ghg-sensitivity = "ghg_model.sensitivity:main"
 ghg-monte-carlo = "ghg_model.monte_carlo:main"
