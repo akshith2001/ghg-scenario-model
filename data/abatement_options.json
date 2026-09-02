@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Reduce tap-running time (kitchen)",
+    "sector": "hospitality_water",
+    "annual_cost_gbp": -180.0,
+    "abatement_kgco2e_per_year": 620.0,
+    "cost_uncertainty_pct": 0.35,
+    "abatement_uncertainty_pct": 0.3
+  },
+  {
+    "name": "LED lighting retrofit",
+    "sector": "electricity",
+    "annual_cost_gbp": 90.0,
+    "abatement_kgco2e_per_year": 410.0,
+    "cost_uncertainty_pct": 0.15,
+    "abatement_uncertainty_pct": 0.1
+  },
+  {
+    "name": "Kitchen equipment scheduling optimisation",
+    "sector": "electricity",
+    "annual_cost_gbp": 40.0,
+    "abatement_kgco2e_per_year": 260.0,
+    "cost_uncertainty_pct": 0.3,
+    "abatement_uncertainty_pct": 0.25
+  },
+  {
+    "name": "Boiler efficiency service and tune",
+    "sector": "heating",
+    "annual_cost_gbp": 150.0,
+    "abatement_kgco2e_per_year": 900.0,
+    "cost_uncertainty_pct": 0.2,
+    "abatement_uncertainty_pct": 0.2
+  },
+  {
+    "name": "Loft and pipe insulation upgrade",
+    "sector": "heating",
+    "annual_cost_gbp": 320.0,
+    "abatement_kgco2e_per_year": 1150.0,
+    "cost_uncertainty_pct": 0.25,
+    "abatement_uncertainty_pct": 0.2
+  },
+  {
+    "name": "Waste segregation and recycling programme",
+    "sector": "waste",
+    "annual_cost_gbp": 60.0,
+    "abatement_kgco2e_per_year": 300.0,
+    "cost_uncertainty_pct": 0.3,
+    "abatement_uncertainty_pct": 0.35
+  },
+  {
+    "name": "Delivery-route consolidation",
+    "sector": "transport",
+    "annual_cost_gbp": -50.0,
+    "abatement_kgco2e_per_year": 480.0,
+    "cost_uncertainty_pct": 0.3,
+    "abatement_uncertainty_pct": 0.3
+  },
+  {
+    "name": "Refrigeration door-seal replacement",
+    "sector": "electricity",
+    "annual_cost_gbp": 70.0,
+    "abatement_kgco2e_per_year": 220.0,
+    "cost_uncertainty_pct": 0.2,
+    "abatement_uncertainty_pct": 0.2
+  }
+]
