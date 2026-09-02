@@ -144,19 +144,8 @@ become available.
 
 ![Hospitality case Monte Carlo uncertainty](figures/hospitality_monte_carlo.svg)
 
-### Scientific-machine-learning foundation experiment
 
-The repository includes a compact neural-surrogate benchmark that compares a
-data-only objective with a physics-informed objective containing the known
-`emissions = activity × emission factor` relationship. It evaluates both held-out
-interpolation and deliberate extrapolation beyond the synthetic training range:
-
-```bash
-ghg-sciml
-```
 ### Least-cost abatement pathway optimisation
-
-[#least-cost-abatement-pathway-optimisation](#least-cost-abatement-pathway-optimisation)
 
 The optimisation command finds the lowest-cost combination of candidate
 measures that meets a stated emissions-reduction target, treating each
@@ -167,9 +156,9 @@ often each measure survives in the optimal set — distinguishing genuinely
 robust choices from ones that only look optimal under one set of point
 estimates.
 
-\`\`\`
+```bash
 ghg-optimize --options data/abatement_options.json --target-kgco2e 2500 --rank-reversal
-\`\`\`
+```
 
 On the illustrative eight-measure dataset, a 2,500 kg CO2e/year target is
 met by five measures at roughly £20/year net cost. Under 1,000 Monte Carlo
@@ -182,7 +171,17 @@ illustrative placeholders. See
 [`docs/optimization_pathway.md`](docs/optimization_pathway.md) for the
 complete method, worked example and limitations.
 
-[![Illustrative marginal abatement cost curve](figures/macc_curve.svg)](figures/macc_curve.svg)
+![Illustrative marginal abatement cost curve](figures/macc_curve.svg)
+
+### Scientific-machine-learning foundation experiment
+
+The repository includes a compact neural-surrogate benchmark that compares a
+data-only objective with a physics-informed objective containing the known
+`emissions = activity × emission factor` relationship. It evaluates both held-out
+interpolation and deliberate extrapolation beyond the synthetic training range:
+
+```bash
+ghg-sciml
 ```
 
 ![Synthetic scientific-ML benchmark](figures/sciml_benchmark.svg)
