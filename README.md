@@ -3,6 +3,8 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](pyproject.toml)
 [![Research status](https://img.shields.io/badge/status-research%20prototype-167D83)](#ethical-and-reproducibility-note)
 
+Related work: this project's uncertainty and evidence-based approach follows the same research direction as trustlens-ai (calibrated, human-governed ML) and hospitality-sustainability-ai (real-world operational validation).
+
 A small, transparent Python model for estimating greenhouse-gas emissions and testing reduction scenarios across electricity, heating, transport, waste, and industrial activity.
 
 This portfolio project was created to demonstrate reproducible modelling, scenario design, uncertainty analysis, documentation, and version-control-ready research practice. It is a prototype, not a regulatory carbon-accounting tool.
