@@ -55,6 +55,26 @@ class ValidationMetrics:
 
 
 @dataclass(frozen=True)
+class PairedUncertainty:
+    bootstrap_seed: int
+    bootstrap_samples: int
+    median_ape_difference_percentage_points: float
+    ci_95_lower: float
+    ci_95_upper: float
+    guided_absolute_error_win_rate: float
+
+
+@dataclass(frozen=True)
+class EmissionSizeSlice:
+    name: str
+    records: int
+    minimum_reported_short_tons: float
+    maximum_reported_short_tons: float
+    data_only_median_absolute_percentage_error: float
+    physics_guided_median_absolute_percentage_error: float
+
+
+@dataclass(frozen=True)
 class ValidationResult:
     data_year: int
     source_records: int
@@ -66,6 +86,8 @@ class ValidationResult:
     data_only: ValidationMetrics
     external_factor_physics: ValidationMetrics
     physics_guided_residual: ValidationMetrics
+    paired_uncertainty: PairedUncertainty
+    emission_size_slices: tuple[EmissionSizeSlice, ...]
 
 
 def _optional_float(value: str | None) -> float | None:
@@ -175,7 +197,65 @@ def _metrics(prediction: np.ndarray, truth: np.ndarray) -> ValidationMetrics:
     )
 
 
-def run_validation(path: Path) -> tuple[ValidationResult, dict[str, np.ndarray]]:
+def _median_ape(prediction: np.ndarray, truth: np.ndarray) -> float:
+    return float(np.median(np.abs(prediction - truth) / truth * 100.0))
+
+
+def _paired_uncertainty(
+    truth: np.ndarray,
+    data_only: np.ndarray,
+    guided: np.ndarray,
+    *,
+    seed: int,
+    samples: int,
+) -> PairedUncertainty:
+    if samples < 100:
+        raise ValueError("bootstrap_samples must be at least 100")
+    rng = np.random.default_rng(seed)
+    differences = np.empty(samples)
+    for index in range(samples):
+        selected = rng.integers(0, len(truth), size=len(truth))
+        differences[index] = _median_ape(guided[selected], truth[selected]) - _median_ape(
+            data_only[selected], truth[selected]
+        )
+    point = _median_ape(guided, truth) - _median_ape(data_only, truth)
+    return PairedUncertainty(
+        bootstrap_seed=seed,
+        bootstrap_samples=samples,
+        median_ape_difference_percentage_points=point,
+        ci_95_lower=float(np.quantile(differences, 0.025)),
+        ci_95_upper=float(np.quantile(differences, 0.975)),
+        guided_absolute_error_win_rate=float(
+            np.mean(np.abs(guided - truth) < np.abs(data_only - truth)) * 100.0
+        ),
+    )
+
+
+def _size_slices(
+    truth: np.ndarray, data_only: np.ndarray, guided: np.ndarray
+) -> tuple[EmissionSizeSlice, ...]:
+    boundaries = np.quantile(truth, (0.25, 0.50, 0.75))
+    groups = np.digitize(truth, boundaries, right=True)
+    names = ("smallest_quartile", "lower_middle_quartile", "upper_middle_quartile", "largest_quartile")
+    slices = []
+    for group, name in enumerate(names):
+        selected = groups == group
+        slices.append(
+            EmissionSizeSlice(
+                name=name,
+                records=int(selected.sum()),
+                minimum_reported_short_tons=float(truth[selected].min()),
+                maximum_reported_short_tons=float(truth[selected].max()),
+                data_only_median_absolute_percentage_error=_median_ape(data_only[selected], truth[selected]),
+                physics_guided_median_absolute_percentage_error=_median_ape(guided[selected], truth[selected]),
+            )
+        )
+    return tuple(slices)
+
+
+def run_validation(
+    path: Path, *, bootstrap_seed: int = 2026, bootstrap_samples: int = 2000
+) -> tuple[ValidationResult, dict[str, np.ndarray]]:
     records, source_count = load_egrid_csv(path)
     training, held_out = _split(records)
     train_x, medians = _prepare_features(training)
@@ -210,6 +290,16 @@ def run_validation(path: Path) -> tuple[ValidationResult, dict[str, np.ndarray]]
         data_only=_metrics(data_only_prediction, test_y),
         external_factor_physics=_metrics(test_physics, test_y),
         physics_guided_residual=_metrics(guided_prediction, test_y),
+        paired_uncertainty=_paired_uncertainty(
+            test_y,
+            data_only_prediction,
+            guided_prediction,
+            seed=bootstrap_seed,
+            samples=bootstrap_samples,
+        ),
+        emission_size_slices=_size_slices(
+            test_y, data_only_prediction, guided_prediction
+        ),
     )
     arrays = {
         "truth": test_y,
@@ -265,8 +355,14 @@ def main() -> None:
     parser.add_argument("--data", type=Path, default=Path("data/egrid_natural_gas_2018.csv"))
     parser.add_argument("--output", type=Path, default=Path("outputs/egrid_validation.json"))
     parser.add_argument("--figure", type=Path, default=Path("figures/egrid_validation.svg"))
+    parser.add_argument("--bootstrap-seed", type=int, default=2026)
+    parser.add_argument("--bootstrap-samples", type=int, default=2000)
     args = parser.parse_args()
-    result, _ = run_validation(args.data)
+    result, _ = run_validation(
+        args.data,
+        bootstrap_seed=args.bootstrap_seed,
+        bootstrap_samples=args.bootstrap_samples,
+    )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(asdict(result), indent=2) + "\n", encoding="utf-8")
     _plot(result, args.figure)

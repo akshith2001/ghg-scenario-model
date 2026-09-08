@@ -43,6 +43,30 @@ RMSE was 0.06% higher than the data-only result. A small number of very large
 plants dominate squared error, so this result supports a limited claim about
 typical relative error, not universal superiority.
 
+### Paired uncertainty and failure slices
+
+The benchmark now uses 2,000 paired bootstrap resamples of the same 320 held-out
+plants. The estimand is the physics-guided median absolute percentage error
+minus the data-only value; negative values favour the physics-guided model.
+The JSON artifact records the locked seed, percentile interval and the share of
+plants on which the guided model has lower absolute error.
+
+The observed paired difference was -0.45 percentage points with a 95%
+bootstrap interval from -0.64 to -0.25 percentage points. The guided model had
+lower absolute error on 57.5% of held-out plants. This interval quantifies
+sampling variation within the fixed 2018 holdout; it does not address temporal
+or dataset shift.
+
+Results are also reported across quartiles of independently reported plant CO2.
+These slices are diagnostic and were added after the original aggregate result;
+they must not be used to retune the locked models or relabel the first test as a
+preregistered analysis.
+
+Median percentage error was lower for the guided model in all four post-hoc
+size quartiles. The largest change occurred in the smallest-emissions quartile
+(3.29% to 1.64%); this diagnostic observation requires replication on a new
+year before it can support a general claim.
+
 ## Leakage controls
 
 No eGRID emission-rate field is supplied as a feature. In particular,

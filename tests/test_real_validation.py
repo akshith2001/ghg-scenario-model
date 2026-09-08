@@ -38,6 +38,19 @@ class RealDataValidationTests(unittest.TestCase):
             second, _ = run_validation(path)
             self.assertEqual(first, second)
 
+    def test_paired_interval_and_size_slices_are_reported(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            result, _ = run_validation(self._fixture(directory), bootstrap_samples=200)
+            interval = result.paired_uncertainty
+            self.assertLessEqual(interval.ci_95_lower, interval.ci_95_upper)
+            self.assertEqual(sum(item.records for item in result.emission_size_slices), result.held_out_records)
+            self.assertEqual(len(result.emission_size_slices), 4)
+
+    def test_too_few_bootstrap_samples_are_rejected(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            with self.assertRaises(ValueError):
+                run_validation(self._fixture(directory), bootstrap_samples=99)
+
     def test_external_factor_recovers_physical_fixture(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             result, _ = run_validation(self._fixture(directory))

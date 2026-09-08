@@ -218,6 +218,12 @@ On the locked 320-plant holdout, the physics-guided residual model reduced
 median absolute percentage error from 1.88% to 1.43% relative to the data-only
 ridge model. Its RMSE was 0.06% worse, so the project reports the improvement
 in typical relative error without claiming that the hybrid wins every metric.
+The machine-readable result now adds a locked 2,000-resample paired bootstrap
+interval, per-plant win rate and error slices across four emissions-size
+quartiles. These post-hoc diagnostics expose uncertainty and failure
+concentration; they are not presented as preregistered evidence.
+The paired median-error difference was -0.45 percentage points with a 95%
+bootstrap interval of -0.64 to -0.25; negative values favour the guided model.
 
 ## Data and provenance
 
