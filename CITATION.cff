@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use the Cross-Sector Greenhouse Gas Scenario Model, please cite this software."
+title: "Cross-Sector Greenhouse Gas Scenario Model"
+type: software
+version: 0.1.0
+authors:
+  - family-names: Moharampudi
+    given-names: Akshith
+repository-code: "https://github.com/akshith2001/ghg-scenario-model"
+abstract: >-
+  A transparent research prototype for cross-sector greenhouse-gas scenario
+  modelling, uncertainty analysis, mitigation optimisation and physics-informed
+  machine-learning evaluation.
+keywords:
+  - greenhouse gas modelling
+  - scenario analysis
+  - uncertainty quantification
+  - Monte Carlo simulation
+  - least-cost abatement optimisation
+  - physics-informed machine learning
+  - climate decision support
+references:
+  - type: software
+    title: "TrustLens AI"
+    authors:
+      - family-names: Moharampudi
+        given-names: Akshith
+    repository-code: "https://github.com/akshith2001/trustlens-ai"
+  - type: software
+    title: "Hospitality Sustainability AI"
+    authors:
+      - family-names: Moharampudi
+        given-names: Akshith
+    repository-code: "https://github.com/akshith2001/hospitality-sustainability-ai"
