@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Transparent cross-sector greenhouse-gas scenario modelling prototype"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ["matplotlib>=3.11", "numpy>=2.0", "scipy>=1.13"]
+dependencies = ["matplotlib>=3.10", "numpy>=2.0", "scipy>=1.13"]
 
 [project.scripts]
 ghg-model = "ghg_model.cli:main"
