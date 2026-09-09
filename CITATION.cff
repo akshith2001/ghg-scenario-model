@@ -21,6 +21,12 @@ keywords:
   - physics-informed machine learning
   - climate decision support
 references:
+  - type: article
+    title: "Transparent Cross-Sector Emissions Scenarios Under Parameter Uncertainty"
+    authors:
+      - family-names: Moharampudi
+        given-names: Akshith
+    doi: 10.5281/zenodo.22681364
   - type: software
     title: "TrustLens AI"
     authors:

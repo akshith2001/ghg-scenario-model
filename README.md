@@ -17,8 +17,8 @@ This portfolio project was created to demonstrate reproducible modelling, scenar
 **Research preprint:**
 [`Transparent Cross-Sector Emissions Scenarios Under Parameter Uncertainty`](output/pdf/ghg_scenario_model_preprint.pdf)
 
-The preprint is versioned with the software and is ready for archival. Its DOI
-will be added here and to `CITATION.cff` after publication on Zenodo.
+Reserved Zenodo DOI: [10.5281/zenodo.22681364](https://doi.org/10.5281/zenodo.22681364).
+The DOI will resolve publicly after the Zenodo record is published.
 
 ## At a glance
 
