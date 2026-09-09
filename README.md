@@ -2,6 +2,7 @@
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](pyproject.toml)
 [![Tests](https://github.com/akshith2001/ghg-scenario-model/actions/workflows/tests.yml/badge.svg)](https://github.com/akshith2001/ghg-scenario-model/actions/workflows/tests.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
 [![Research status](https://img.shields.io/badge/status-research%20prototype-167D83)](#ethical-and-reproducibility-note)
 
 Related work: this project's uncertainty and evidence-based approach follows the same research direction as trustlens-ai (calibrated, human-governed ML) and hospitality-sustainability-ai (real-world operational validation).
@@ -259,3 +260,9 @@ outputs/               Generated results (created when the model runs)
 ## Ethical and reproducibility note
 
 Results are only as reliable as their boundaries, data, factors, and assumptions. Scenario outputs should be reported with uncertainty and should not be presented as forecasts.
+
+## License
+
+Released under the [Apache License 2.0](LICENSE). The licence covers the
+software and repository documentation; third-party datasets retain their own
+terms and attribution requirements.

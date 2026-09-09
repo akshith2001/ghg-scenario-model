@@ -3,6 +3,7 @@ message: "If you use the Cross-Sector Greenhouse Gas Scenario Model, please cite
 title: "Cross-Sector Greenhouse Gas Scenario Model"
 type: software
 version: 0.1.0
+license: Apache-2.0
 authors:
   - family-names: Moharampudi
     given-names: Akshith
