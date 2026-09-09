@@ -1,6 +1,7 @@
 # Cross-Sector Greenhouse Gas Scenario Model
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](pyproject.toml)
+[![Tests](https://github.com/akshith2001/ghg-scenario-model/actions/workflows/tests.yml/badge.svg)](https://github.com/akshith2001/ghg-scenario-model/actions/workflows/tests.yml)
 [![Research status](https://img.shields.io/badge/status-research%20prototype-167D83)](#ethical-and-reproducibility-note)
 
 Related work: this project's uncertainty and evidence-based approach follows the same research direction as trustlens-ai (calibrated, human-governed ML) and hospitality-sustainability-ai (real-world operational validation).
