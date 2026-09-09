@@ -14,6 +14,12 @@ This portfolio project was created to demonstrate reproducible modelling, scenar
 **Research agenda:**
 [`Transparent Cross-Sector Emissions Scenarios Under Parameter Uncertainty`](docs/research_agenda.md)
 
+**Research preprint:**
+[`Transparent Cross-Sector Emissions Scenarios Under Parameter Uncertainty`](output/pdf/ghg_scenario_model_preprint.pdf)
+
+The preprint is versioned with the software and is ready for archival. Its DOI
+will be added here and to `CITATION.cff` after publication on Zenodo.
+
 ## At a glance
 
 | Research element | Current implementation |
