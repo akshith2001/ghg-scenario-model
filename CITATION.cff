@@ -7,6 +7,7 @@ license: Apache-2.0
 authors:
   - family-names: Moharampudi
     given-names: Akshith
+    orcid: https://orcid.org/0009-0009-3177-8492
 repository-code: "https://github.com/akshith2001/ghg-scenario-model"
 abstract: >-
   A transparent research prototype for cross-sector greenhouse-gas scenario
@@ -26,16 +27,19 @@ references:
     authors:
       - family-names: Moharampudi
         given-names: Akshith
+        orcid: https://orcid.org/0009-0009-3177-8492
     doi: 10.5281/zenodo.22681364
   - type: software
     title: "TrustLens AI"
     authors:
       - family-names: Moharampudi
         given-names: Akshith
+        orcid: https://orcid.org/0009-0009-3177-8492
     repository-code: "https://github.com/akshith2001/trustlens-ai"
   - type: software
     title: "Hospitality Sustainability AI"
     authors:
       - family-names: Moharampudi
         given-names: Akshith
+        orcid: https://orcid.org/0009-0009-3177-8492
     repository-code: "https://github.com/akshith2001/hospitality-sustainability-ai"
