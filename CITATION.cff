@@ -43,3 +43,12 @@ references:
         given-names: Akshith
         orcid: https://orcid.org/0009-0009-3177-8492
     repository-code: "https://github.com/akshith2001/hospitality-sustainability-ai"
+
+  - type: software
+    title: "Cross-Domain Robustness Synthesis"
+    authors:
+      - family-names: Moharampudi
+        given-names: Akshith
+        orcid: "https://orcid.org/0009-0009-3177-8492"
+    repository-code: "https://github.com/akshith2001/cross-domain-robustness-synthesis"
+    doi: "10.5281/zenodo.22777883"
