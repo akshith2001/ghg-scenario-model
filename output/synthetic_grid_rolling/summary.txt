@@ -1,0 +1,33 @@
+arm,pf_residual_mean,pf_residual_sd,violation_gap_mean,violation_gap_sd,w1_mean,w1_sd,corr_err_mean,corr_err_sd,tstr_ratio_mean,tstr_ratio_sd,memorisation_mean,memorisation_sd,emis_err_flat_mean,emis_err_flat_sd,w1_excess_mean,w1_excess_sd,corr_err_excess_mean,corr_err_excess_sd
+GAUSS,0.00000,0.00000,0.05000,0.03536,0.68642,0.25161,0.38201,0.09200,1.14727,0.33646,0.00000,0.00000,0.08194,0.06030,0.05148,0.02758,0.01026,0.02652
+VAE-FREE,0.00219,0.00062,0.03250,0.03039,0.68607,0.27891,0.41475,0.10983,1.02134,0.19614,0.00000,0.00000,0.06882,0.05699,0.05114,0.05491,0.04299,0.06505
+VAE-SOFT,0.00221,0.00055,0.03917,0.03126,0.68289,0.27773,0.41094,0.07693,1.01002,0.22467,0.00000,0.00000,0.06893,0.06146,0.04795,0.04824,0.03919,0.03333
+VAE-HARD,0.00000,0.00000,0.02917,0.02500,0.67900,0.25443,0.42468,0.11734,1.01855,0.19742,0.00000,0.00000,0.07724,0.06252,0.04407,0.03829,0.05293,0.08104
+GMM,0.00000,0.00000,0.04333,0.01990,0.67867,0.25034,0.38189,0.08660,1.10368,0.20827,0.00000,0.00000,0.08290,0.06312,0.04373,0.03454,0.01013,0.02278
+
+Paired differences (A minus B), 95% t-interval, number of seeds with A<B
+VAE-SOFT - VAE-FREE pf_residual: +0.0000 [-0.0001,+0.0001] A<B in 1/5
+VAE-SOFT - VAE-FREE w1: -0.0032 [-0.0188,+0.0124] A<B in 3/5
+VAE-SOFT - VAE-FREE corr_err: -0.0038 [-0.0729,+0.0653] A<B in 1/5
+VAE-SOFT - VAE-FREE violation_gap: +0.0067 [-0.0073,+0.0206] A<B in 1/5
+VAE-SOFT - VAE-FREE tstr_ratio: -0.0113 [-0.1521,+0.1295] A<B in 2/5
+VAE-HARD - VAE-FREE pf_residual: -0.0022 [-0.0030,-0.0014] A<B in 5/5
+VAE-HARD - VAE-FREE w1: -0.0071 [-0.0384,+0.0242] A<B in 2/5
+VAE-HARD - VAE-FREE corr_err: +0.0099 [-0.0235,+0.0434] A<B in 2/5
+VAE-HARD - VAE-FREE violation_gap: -0.0033 [-0.0257,+0.0190] A<B in 2/5
+VAE-HARD - VAE-FREE tstr_ratio: -0.0028 [-0.1455,+0.1399] A<B in 2/5
+VAE-HARD - GAUSS pf_residual: +0.0000 [+0.0000,+0.0000] A<B in 0/5
+VAE-HARD - GAUSS w1: -0.0074 [-0.0274,+0.0126] A<B in 4/5
+VAE-HARD - GAUSS corr_err: +0.0427 [-0.0649,+0.1502] A<B in 2/5
+VAE-HARD - GAUSS violation_gap: -0.0208 [-0.0806,+0.0389] A<B in 4/5
+VAE-HARD - GAUSS tstr_ratio: -0.1287 [-0.3178,+0.0603] A<B in 4/5
+VAE-FREE - GAUSS pf_residual: +0.0022 [+0.0014,+0.0030] A<B in 0/5
+VAE-FREE - GAUSS w1: -0.0003 [-0.0397,+0.0390] A<B in 3/5
+VAE-FREE - GAUSS corr_err: +0.0327 [-0.0477,+0.1132] A<B in 3/5
+VAE-FREE - GAUSS violation_gap: -0.0175 [-0.0904,+0.0554] A<B in 3/5
+VAE-FREE - GAUSS tstr_ratio: -0.1259 [-0.3989,+0.1470] A<B in 4/5
+GMM - GAUSS pf_residual: +0.0000 [+0.0000,+0.0000] A<B in 0/5
+GMM - GAUSS w1: -0.0078 [-0.0301,+0.0146] A<B in 4/5
+GMM - GAUSS corr_err: -0.0001 [-0.0435,+0.0432] A<B in 2/5
+GMM - GAUSS violation_gap: -0.0067 [-0.0365,+0.0232] A<B in 3/5
+GMM - GAUSS tstr_ratio: -0.0436 [-0.4128,+0.3256] A<B in 3/5

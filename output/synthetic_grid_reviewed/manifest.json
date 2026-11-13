@@ -1,0 +1,33 @@
+{
+  "started_utc": "2026-11-12T18:32:27.797184+00:00",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "epochs": 300,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "rolling_origins": [
+    0,
+    60,
+    120,
+    180,
+    240
+  ],
+  "versions": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1"
+  },
+  "source_sha256": "28b0e8b16dca1e923f25b86e5994fe607e870ef5b34e51b856ee7c8eb9b7772d",
+  "data_sha256": "1429d1f5ae9a18e83bfd840e55e9c8686b867dc94687c4b5ad411f7004d46554",
+  "completed": [
+    "simulated",
+    "real",
+    "rolling"
+  ],
+  "finished_utc": "2026-11-12T18:34:34.200239+00:00"
+}

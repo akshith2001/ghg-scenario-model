@@ -1,0 +1,12 @@
+{
+  "title": "BDG2 hospitality daily electricity extract (8 buildings)",
+  "publisher": "Building Data Genome Project 2 (Miller, Kathirgamanathan, Picchetti, Arjunan, Park, Nagy, Raftery, Hobson, Shi, Meggers)",
+  "doi": "https://doi.org/10.5281/zenodo.3887306",
+  "licence": "Creative Commons Attribution 4.0 International, as recorded in the author's hospitality-sustainability-ai repository (docs/DATA_SOURCES.md); check the licence of the exact distribution you use, as the GitHub mirror carries a ShareAlike licence file",
+  "source_version": "BDG2 v1.0, downloaded 2026-08-16",
+  "derived_by": "hospitality-sustainability-ai importer (python -m hospitality_ai.bdg2_real_data), copied unchanged",
+  "scope": "6 food-service and 2 hotel buildings, daily electricity in kWh (days with at least 20 hourly readings), 2016-01-01 to 2017-12-31",
+  "processed_csv_sha256": "1d2a9af19113aaff1646c2d185363528deb7b1e8d6a95fb9cd9f98360e75f380",
+  "rows": 5755,
+  "important_limit": "Buildings are at different sites, so they do not share a real feeder; only daily totals exist. Used only as real load data for the synthetic_grid real-building replication, not as operational hospitality evidence."
+}

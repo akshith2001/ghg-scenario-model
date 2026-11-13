@@ -6,3 +6,4 @@ outputs/
 data/raw/
 *.egg-info/
 .vscode/
+outputs_test.log

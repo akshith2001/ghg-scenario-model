@@ -5,9 +5,11 @@
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
 [![Research status](https://img.shields.io/badge/status-research%20prototype-167D83)](#ethical-and-reproducibility-note)
 
-Related work: this project's uncertainty and evidence-based approach follows the same research direction as trustlens-ai (calibrated, human-governed ML) and hospitality-sustainability-ai (real-world operational validation).
+Related work: this project's uncertainty and evidence-based approach follows the same research direction as trustlens-ai (calibrated, human-governed ML) and hospitality-sustainability-ai (retrospective building-energy evaluation).
 
 A small, transparent Python model for estimating greenhouse-gas emissions and testing reduction scenarios across electricity, heating, transport, waste, and industrial activity.
+
+It now also includes a synthetic-energy-data module (simulated feeder, with a real-building replication) that links energy-system data generation to emissions accounting (see [below](#synthetic-energy-data-and-emissions-accounting)).
 
 This portfolio project was created to demonstrate reproducible modelling, scenario design, uncertainty analysis, documentation, and version-control-ready research practice. It is a prototype, not a regulatory carbon-accounting tool.
 
@@ -17,8 +19,8 @@ This portfolio project was created to demonstrate reproducible modelling, scenar
 **Research preprint:**
 [`Transparent Cross-Sector Emissions Scenarios Under Parameter Uncertainty`](output/pdf/ghg_scenario_model_preprint.pdf)
 
-Reserved Zenodo DOI: [10.5281/zenodo.22681364](https://doi.org/10.5281/zenodo.22681364).
-The DOI will resolve publicly after the Zenodo record is published.
+Published v0.1 preprint DOI: [10.5281/zenodo.22681364](https://doi.org/10.5281/zenodo.22681364).
+The synthetic-grid extension is subsequent work and is not part of that preprint.
 
 ## At a glance
 
@@ -31,6 +33,8 @@ The DOI will resolve publicly after the Zenodo record is published.
 | Applied case | Hospitality water-energy-emissions scenario |
 | Scientific ML | Reproducible data-only vs physics-informed neural benchmark |
 | Real-data validation | Held-out EPA eGRID natural-gas plant comparison |
+| Energy-system data generation | Power-flow-consistent synthetic feeder load: simulated study plus a real-building (BDG2) replication, three study protocols, four generator arms plus a rolling-study mixture baseline |
+| Link to accounting | Synthetic or real feeder days become `Activity` records with sampling uncertainty |
 | Interpretation | Conditional scenario estimates, not measurements or forecasts |
 
 ## Research question
@@ -233,6 +237,55 @@ concentration; they are not presented as preregistered evidence.
 The paired median-error difference was -0.45 percentage points with a 95%
 bootstrap interval of -0.64 to -0.25; negative values favour the guided model.
 
+## Synthetic energy data and emissions accounting
+
+The `ghg_model.synthetic_grid` module asks whether a generative model can produce
+synthetic load data that respect network physics and still support the same
+electricity activity and emissions estimates as the data it was trained on. It
+compares a Gaussian baseline with three NumPy VAEs (unconstrained, soft physics
+penalty, hard physics layer) on a simulated 9-bus radial feeder with an exact AC
+load flow, over five seeds, under three locked protocols:
+
+- **Study 1 (fully simulated).** Loads come from the author's own simulator.
+- **Study 2 (real-building replication).** Loads are real daily electricity use of eight
+  BDG2 hospitality buildings, with a chronological split (train 2016, test 2017). Only the
+  feeder is simulated, because the buildings are at different sites.
+- **Study 3 (rolling origins).** The real-data comparison repeated over five rolling
+  windows, so the data change between replicates, with a Gaussian-mixture baseline added.
+
+```bash
+pip install -e ".[synthetic]"
+ghg-synthetic-grid                  # Study 1
+ghg-synthetic-grid --study real     # Study 2
+ghg-synthetic-grid --study rolling  # Study 3
+```
+
+The load-only arms derive voltages from a converged AC solver. Their voltage-consistency
+error is zero by construction; it is not evidence that a generator learned network physics,
+nor a guarantee that voltage operating limits are satisfied. Invalid loads and failed
+solver convergence now raise errors. Grid-import accounting includes line losses and
+supports hourly inputs and daily mean-power inputs explicitly.
+
+Corrected full experiments have been reproduced with a 300-epoch training budget.
+The [results report](docs/synthetic_grid_results.md) includes numerical diagnostics,
+emissions comparisons and limitations; the [manifest](output/synthetic_grid_reviewed/manifest.json)
+records input/code fingerprints and library versions. Historical results remain labelled
+separately. Rolling comparisons are descriptive because their windows overlap.
+
+```bash
+python scripts/reproduce_synthetic_grid.py --output outputs/synthetic_grid_reproduction
+python scripts/plot_synthetic_grid.py simulated --input outputs/synthetic_grid_reproduction
+python scripts/plot_synthetic_grid.py real --input outputs/synthetic_grid_reproduction
+python scripts/plot_synthetic_grid.py rolling --input outputs/synthetic_grid_reproduction
+```
+
+![Corrected rolling-origin comparisons](figures/synthetic_grid_reviewed_rolling.png)
+
+See [correction notes](docs/synthetic_grid_corrections.md). The real loads come from
+eight buildings at different sites mapped onto a simulated feeder; this is not real
+network validation. The daily downstream task is same-day cross-building prediction,
+not future forecasting.
+
 ## Data and provenance
 
 `data/sample_activities.csv` contains a synthetic demonstration dataset. Its emission factors are illustrative and must not be used for formal reporting. The model keeps factor year, source, unit, and uncertainty alongside every record so authoritative factors can be substituted without changing the code.
@@ -247,17 +300,20 @@ For a real study, use the latest UK Government greenhouse-gas conversion-factor 
 ## Repository structure
 
 ```text
-data/                  Synthetic activities and scenario assumptions
-src/ghg_model/         Model and command-line interface
+data/                  Synthetic activities, scenario assumptions, eGRID validation data, BDG2 extract (data/real)
+src/ghg_model/         Scenario model, uncertainty, optimisation, validation, synthetic_grid
+docs/                  Research agenda, validation, optimisation and synthetic-grid study
+figures/               Generated figures
 tests/                 Unit tests
-outputs/               Generated results (created when the model runs)
+output/                Committed result artefacts (preprint, synthetic-grid results)
+outputs/               Generated results (created when commands run)
 ```
 
 ## Limitations and next steps
 
 - Replace illustrative factors with an automated, versioned import from an authoritative source.
 - Add direct and indirect emissions with explicit Scope 1, 2, and 3 treatment.
-- Add spatial and hourly resolution for integration with an energy-system model.
+- Add spatial and hourly resolution for integration with an energy-system model (hourly resolution exists only in the simulated `synthetic_grid` study; real hourly emission factors, hourly building loads and a real feeder are still needed).
 - Model correlations and probability distributions using Monte Carlo simulation.
 - Validate sector mappings and scenario assumptions with domain experts.
 - Test whether intervention rankings reverse across plausible input distributions.
