@@ -237,6 +237,28 @@ concentration; they are not presented as preregistered evidence.
 The paired median-error difference was -0.45 percentage points with a 95%
 bootstrap interval of -0.64 to -0.25; negative values favour the guided model.
 
+## Luxembourg hourly energy planning
+
+The integrated v0.5.1 code adds solar and battery capacity planning, border-aware
+imports, measured Energy-Charts inputs for 2024 and 2025, regional marginal-emissions
+regression and exploratory storage-price feedback. It preserves the corrected
+synthetic-grid accounting and independent physical diagnostics.
+
+```bash
+pip install -e ".[synthetic]"
+ghg-luxembourg-real --output outputs/luxembourg_real_results.json --figures-dir outputs/luxembourg_figures
+```
+
+Negative-price export settlement now applies a spread in the correct direction,
+removing profitable circular imports/exports. Full-year central integration checks
+for both years are saved in `output/luxembourg_merged/central_validation.json`.
+These checks use default costs, without foresight derating or storage-price feedback;
+they are not a reproduction of the original v0.5 study.
+
+The imported [case-study report](docs/luxembourg_case_study.md) and its figures
+are historical, pre-correction results. Their investment, Monte Carlo and price-feedback
+claims require a full rerun before citation. See [merge validation](docs/v0.5_merge_validation.md).
+
 ## Synthetic energy data and emissions accounting
 
 The `ghg_model.synthetic_grid` module asks whether a generative model can produce

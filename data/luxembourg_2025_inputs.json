@@ -1,0 +1,77 @@
+{
+  "description": "Published 2025 statistics for the Luxembourg electricity system used to calibrate the hourly case study. Each value records its source. Values marked 'assumption' are modelling choices, not published statistics, and are varied in the Monte Carlo analysis.",
+  "retrieved": "2026-11-16",
+  "year": 2025,
+  "values": {
+    "gross_consumption_gwh": {
+      "value": 6529,
+      "source": "ILR key figures 2025, reported by Chronicle.lu",
+      "url": "https://chronicle.lu/category/surveys-reports/62120-solar-becomes-luxembourgs-largest-electricity-source-in-2025-ilr-reports"
+    },
+    "imports_gwh": {
+      "value": 4776,
+      "source": "ILR key figures 2025, reported by Chronicle.lu",
+      "url": "https://chronicle.lu/category/surveys-reports/62120-solar-becomes-luxembourgs-largest-electricity-source-in-2025-ilr-reports"
+    },
+    "domestic_generation_gwh": {
+      "value": 1826,
+      "source": "ILR key figures 2025, reported by Chronicle.lu",
+      "url": "https://chronicle.lu/category/surveys-reports/62120-solar-becomes-luxembourgs-largest-electricity-source-in-2025-ilr-reports"
+    },
+    "solar_generation_gwh": {
+      "value": 627,
+      "source": "ILR key figures 2025, reported by Chronicle.lu",
+      "url": "https://chronicle.lu/category/surveys-reports/62120-solar-becomes-luxembourgs-largest-electricity-source-in-2025-ilr-reports"
+    },
+    "solar_capacity_end_year_mw": {
+      "value": 746,
+      "source": "ILR key figures 2025 (up 35.8% year on year), reported by Chronicle.lu",
+      "url": "https://chronicle.lu/category/surveys-reports/62120-solar-becomes-luxembourgs-largest-electricity-source-in-2025-ilr-reports"
+    },
+    "wind_generation_gwh": {
+      "value": 467,
+      "source": "ILR key figures 2025, reported by Chronicle.lu",
+      "url": "https://chronicle.lu/category/surveys-reports/62120-solar-becomes-luxembourgs-largest-electricity-source-in-2025-ilr-reports"
+    },
+    "imports_by_neighbour_twh": {
+      "value": {"DE": 2.63, "FR": 1.17, "BE": 0.94},
+      "source": "Electricity Maps, Grid in Review 2025: Luxembourg",
+      "url": "https://www.electricitymaps.com/grid-in-review-2025/luxembourg"
+    },
+    "neighbour_average_intensity_g_per_kwh": {
+      "value": {"DE": 336, "FR": 30, "BE": 179},
+      "source": "Electricity Maps, Grid in Review 2025: Luxembourg (carbon intensity of each import source)",
+      "url": "https://www.electricitymaps.com/grid-in-review-2025/luxembourg"
+    },
+    "consumption_intensity_flow_traced_g_per_kwh": {
+      "value": 212.2,
+      "source": "Electricity Maps, Grid in Review 2025: Luxembourg (flow-traced annual average)",
+      "url": "https://www.electricitymaps.com/grid-in-review-2025/luxembourg"
+    },
+    "load_profile_targets_gw": {
+      "value": {"peak": 1.1, "minimum": 0.4, "hourly_mean_max": 0.8, "hourly_mean_min": 0.6, "weekday_mean": 0.7, "weekend_mean": 0.6},
+      "source": "Electricity Maps, Grid in Review 2025: Luxembourg (load statistics and average hourly profile)",
+      "url": "https://www.electricitymaps.com/grid-in-review-2025/luxembourg"
+    },
+    "day_ahead_price_eur_per_mwh": {
+      "value": {"mean": 89.4, "hourly_profile_high": 144.0, "hourly_profile_low": 45.4, "negative_price_hours": 545},
+      "source": "Electricity Maps, Grid in Review 2025: Luxembourg (DE-LU bidding zone day-ahead prices)",
+      "url": "https://www.electricitymaps.com/grid-in-review-2025/luxembourg"
+    },
+    "solar_lcoe_usd_per_mwh": {
+      "value": {"europe_average": 59, "germany": 65},
+      "source": "IRENA Renewable Power Generation Costs in 2025, reported by PV Tech",
+      "url": "https://www.pv-tech.org/solar-pv-lcoe-ticks-marginally-upwards-2025-irena/"
+    },
+    "battery_installed_cost_usd_per_kwh": {
+      "value": {"irena_4h_utility_2025": 140},
+      "source": "IRENA Renewable Power Generation Costs in 2025, reported by Balkan Green Energy News",
+      "url": "https://balkangreenenergynews.com/irena-hybrid-renewable-systems-see-dramatic-cost-reductions/"
+    },
+    "marginal_import_intensity_g_per_kwh": {
+      "value": {"low": 350, "central": 550, "high": 800},
+      "source": "assumption: bounded by direct-combustion intensities of gas (about 350-400 g/kWh) and hard coal (about 800+ g/kWh) units that typically set the margin in the DE-LU zone; hourly marginal factors for Germany are studied in Seckinger and Radgen (2021), doi:10.3390/en14092527",
+      "url": "https://doi.org/10.3390/en14092527"
+    }
+  }
+}

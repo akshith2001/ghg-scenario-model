@@ -1,0 +1,225 @@
+{
+  "2024": {
+    "hours": 8760,
+    "input_sha256": {
+      "energycharts_lu_de_2024_hourly.csv": "123a6a57adee05e965d1d7d01f2108070541c84a86cd02d9e891318ca2712f84",
+      "energycharts_neighbours_2024_hourly.csv": "a4a98f957a5d819011104d97ee489b42e80dde2d801ae19e8fa34dd4acff7e21"
+    },
+    "parameters": {
+      "existing_solar_mw": 304.70071701982226,
+      "solar_tier_mw": [
+        500.0,
+        500.0,
+        500.0
+      ],
+      "solar_tier_cost_multiplier": [
+        1.0,
+        1.3,
+        1.7
+      ],
+      "max_battery_mwh": 6000.0,
+      "solar_lcoe_eur_per_mwh": 60.0,
+      "battery_capex_eur_per_kwh": 150.0,
+      "battery_lifetime_years": 15.0,
+      "battery_fixed_om_share": 0.02,
+      "battery_cycle_life": 6000.0,
+      "max_cycles_per_day": 1.5,
+      "battery_cost_multiplier": 1.0,
+      "discount_rate": 0.06,
+      "battery_duration_h": 4.0,
+      "charge_efficiency": 0.95,
+      "discharge_efficiency": 0.95,
+      "export_cap_mw": 300.0,
+      "import_cap_mw": 1650.0,
+      "border_mode": "flow_shares",
+      "border_import_cap_mw": {
+        "DE": 1000.0,
+        "BE": 650.0
+      },
+      "export_value_share": 0.9,
+      "carbon_price_eur_per_t": 80.0,
+      "marginal_source": "profile",
+      "marginal_intensity_g_per_kwh": 550.0,
+      "marginal_solar_dip": 0.3,
+      "marginal_scale": 1.0,
+      "price_scale": 1.0
+    },
+    "plans": {
+      "average": {
+        "accounting": "average",
+        "new_solar_mw": 500.0,
+        "new_solar_by_tier_mw": [
+          500.0,
+          0.0,
+          0.0
+        ],
+        "battery_mwh": 2290.742,
+        "annual_cost_eur": 307193014.215,
+        "investment_cost_eur": 71294017.596,
+        "energy_cost_eur": 218717670.383,
+        "wear_cost_eur": 17181326.237,
+        "imports_gwh": 3291.187,
+        "imports_by_channel_gwh": {
+          "all (flow shares)": 3291.187
+        },
+        "exports_gwh": 32.966,
+        "curtailment_gwh": 66.051,
+        "battery_cycles_per_year": 300.013,
+        "emissions_average_t": 832727.427,
+        "emissions_marginal_t": 983051.344,
+        "objective_eur": 373811274.404,
+        "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)"
+      },
+      "marginal": {
+        "accounting": "marginal",
+        "new_solar_mw": 500.0,
+        "new_solar_by_tier_mw": [
+          500.0,
+          0.0,
+          0.0
+        ],
+        "battery_mwh": 3127.867,
+        "annual_cost_eur": 309286933.168,
+        "investment_cost_eur": 86734305.812,
+        "energy_cost_eur": 199923009.987,
+        "wear_cost_eur": 22629617.368,
+        "imports_gwh": 3520.251,
+        "imports_by_channel_gwh": {
+          "all (flow shares)": 3520.251
+        },
+        "exports_gwh": 225.549,
+        "curtailment_gwh": 78.989,
+        "battery_cycles_per_year": 289.394,
+        "emissions_average_t": 872804.005,
+        "emissions_marginal_t": 903972.832,
+        "objective_eur": 381604838.723,
+        "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)"
+      }
+    },
+    "regret_share": 0.004485186635434081,
+    "parameters_note": "Default costs, without foresight derating or price feedback; integration validation only."
+  },
+  "2025": {
+    "hours": 8760,
+    "input_sha256": {
+      "energycharts_lu_de_2025_hourly.csv": "6fe2100c67a855ca285496c107af90a68276744ebe59690ed3bcd3a07e8f272c",
+      "energycharts_neighbours_2025_hourly.csv": "113252ec4421fffec9500a7bfbf7afe6964958b612734e8acb89e0fe674adcfc"
+    },
+    "parameters": {
+      "existing_solar_mw": 442.89688189780924,
+      "solar_tier_mw": [
+        500.0,
+        500.0,
+        500.0
+      ],
+      "solar_tier_cost_multiplier": [
+        1.0,
+        1.3,
+        1.7
+      ],
+      "max_battery_mwh": 6000.0,
+      "solar_lcoe_eur_per_mwh": 60.0,
+      "battery_capex_eur_per_kwh": 150.0,
+      "battery_lifetime_years": 15.0,
+      "battery_fixed_om_share": 0.02,
+      "battery_cycle_life": 6000.0,
+      "max_cycles_per_day": 1.5,
+      "battery_cost_multiplier": 1.0,
+      "discount_rate": 0.06,
+      "battery_duration_h": 4.0,
+      "charge_efficiency": 0.95,
+      "discharge_efficiency": 0.95,
+      "export_cap_mw": 300.0,
+      "import_cap_mw": 1650.0,
+      "border_mode": "flow_shares",
+      "border_import_cap_mw": {
+        "DE": 1000.0,
+        "BE": 650.0
+      },
+      "export_value_share": 0.9,
+      "carbon_price_eur_per_t": 80.0,
+      "marginal_source": "profile",
+      "marginal_intensity_g_per_kwh": 550.0,
+      "marginal_solar_dip": 0.3,
+      "marginal_scale": 1.0,
+      "price_scale": 1.0
+    },
+    "plans": {
+      "average": {
+        "accounting": "average",
+        "new_solar_mw": 0.0,
+        "new_solar_by_tier_mw": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "battery_mwh": 3339.579,
+        "annual_cost_eur": 330317267.773,
+        "investment_cost_eur": 61596578.672,
+        "energy_cost_eur": 243116930.637,
+        "wear_cost_eur": 25603758.464,
+        "imports_gwh": 3744.845,
+        "imports_by_channel_gwh": {
+          "all (flow shares)": 3744.845
+        },
+        "exports_gwh": 101.39,
+        "curtailment_gwh": 39.986,
+        "battery_cycles_per_year": 306.67,
+        "emissions_average_t": 865518.055,
+        "emissions_marginal_t": 1145234.332,
+        "objective_eur": 399558752.139,
+        "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)"
+      },
+      "marginal": {
+        "accounting": "marginal",
+        "new_solar_mw": 500.0,
+        "new_solar_by_tier_mw": [
+          500.0,
+          0.0,
+          0.0
+        ],
+        "battery_mwh": 3519.149,
+        "annual_cost_eur": 338027201.77,
+        "investment_cost_eur": 93951263.468,
+        "energy_cost_eur": 219348751.588,
+        "wear_cost_eur": 24727186.715,
+        "imports_gwh": 3426.913,
+        "imports_by_channel_gwh": {
+          "all (flow shares)": 3426.913
+        },
+        "exports_gwh": 240.234,
+        "curtailment_gwh": 71.043,
+        "battery_cycles_per_year": 281.059,
+        "emissions_average_t": 838363.744,
+        "emissions_marginal_t": 957423.776,
+        "objective_eur": 414621174.919,
+        "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)"
+      }
+    },
+    "regret_share": 0.00917265037286311,
+    "parameters_note": "Default costs, without foresight derating or price feedback; integration validation only."
+  },
+  "source_sha256": {
+    "src\\ghg_model\\__init__.py": "d7c62aa912dec0dee401543500a0222fd5ea96979f179d5dee5ed3f996e67702",
+    "src\\ghg_model\\chart.py": "ec10055475f60751b891ff0ee0f72337e56196e7f724439f47c64fc8801b813a",
+    "src\\ghg_model\\cli.py": "275c7af21debf7d19dbfa5803df4e479b1d961e1972a40c07390209937e77059",
+    "src\\ghg_model\\energycharts.py": "a1bccea3d36e6f546d0082a0fc666c342cb26073f80a1b29f46aed883a85e0e6",
+    "src\\ghg_model\\entsoe.py": "12147f7cfca8b184cf2b3d458f720e321cce50c7e4053117be793202fb565de6",
+    "src\\ghg_model\\foresight.py": "3609a57273fe86402cce7e92b735d8f4da688ecf3e7261f1881b84574c17b0b5",
+    "src\\ghg_model\\hospitality_water.py": "44aeb3b687a0ae9dc9d994136d9c845a0d6e2e1cad5d6c82f74a55a4ad5e85dd",
+    "src\\ghg_model\\hourly_dispatch.py": "e0d51a9f33e7d407475109c2e6e5e3576a9cc5b54196e673f7b64404fca429de",
+    "src\\ghg_model\\luxembourg_case.py": "e945d3fba4bea84dc93ea01e147023a0e908095c1295810b62ed1a6c644df4bf",
+    "src\\ghg_model\\luxembourg_profiles.py": "2b3bebecb0f2825e706e4da3f8406411a401729fcffdf6867055e26abc5d91e1",
+    "src\\ghg_model\\marginal_emissions.py": "307480beaa8de35a43812203e0dba645937c8dc71fbcf330030ad96e8cbabbc2",
+    "src\\ghg_model\\model.py": "d605149a7debf3d627ef4248bfa9b91191a4cb3267316bbf4cc1f5db016cc258",
+    "src\\ghg_model\\monte_carlo.py": "076250c0f69e675ae398d33d382452ac4528638b435a06698c6a0dc940ab0a3f",
+    "src\\ghg_model\\optimization.py": "cf34795f34f5fefd2a6c7c9b2c4d8dac611c7f64a35f1435808f0d07074a8305",
+    "src\\ghg_model\\price_feedback.py": "0d63a96899ff2cc62bba47853cd7cfc972074cf815cbacd1e45d9ddb435c1876",
+    "src\\ghg_model\\real_case.py": "229ec172370f1a4a845447468ea40320c545b581d6654e7d7e74c8c1ef6803d1",
+    "src\\ghg_model\\real_validation.py": "74814bfd9becd7a3e6784f9c26fbe18446460bd14a7a415bb201498f232a27fd",
+    "src\\ghg_model\\regional_marginal.py": "5898f39447d649a2682157ad86a1f2b5a1358690c17f6b4ede7f8d10852be2f2",
+    "src\\ghg_model\\sciml.py": "2389006d71958078785d22e45d22acafd73dc25ed4c399761020ada299c74e73",
+    "src\\ghg_model\\sensitivity.py": "f484d3919de3ec316c620bd579603d2ccffca8f5f15cee1818774560ab1cc2d2",
+    "src\\ghg_model\\synthetic_grid.py": "bfa893b5d0a412cbc10f263a46ed92b60d07cbf7653a7610b7fa6e171f3436c0"
+  }
+}

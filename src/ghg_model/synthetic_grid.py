@@ -479,13 +479,19 @@ def feeder_import_kwh(P_days, t=T):
     return np.maximum(net, 0.0) * KWH_PER_PU_HOUR * (24.0 / t)
 
 
-def daily_emissions_kg(P_days, factor=DEFAULT_FACTOR, time_of_use=False, t=T):
+def daily_emissions_kg(P_days, factor=DEFAULT_FACTOR, time_of_use=False, t=T, shape=None):
     """Daily emissions from grid imports; hourly factors require hourly input."""
     if not np.isfinite(factor) or factor < 0:
         raise ValueError("factor must be finite and nonnegative")
-    if time_of_use and t != T:
+    if (time_of_use or shape is not None) and t != T:
         raise ValueError("time-of-use factors require 24 hourly values")
-    f = factor * (TOU_SHAPE if time_of_use else 1.0)
+    if shape is not None:
+        shape = np.asarray(shape, dtype=float)
+        if shape.shape != (T,) or not np.isfinite(shape).all() or np.any(shape < 0) or shape.mean() <= 0:
+            raise ValueError("shape must contain 24 finite nonnegative values with positive mean")
+        f = factor * shape / shape.mean()
+    else:
+        f = factor * (TOU_SHAPE if time_of_use else 1.0)
     return (feeder_import_kwh(P_days, t) * f).sum(axis=1)
 
 
@@ -513,10 +519,10 @@ def electricity_activity(P_days, activity_id="SG001", factor=DEFAULT_FACTOR, day
     )
 
 
-def emissions_error(P_syn, P_real, time_of_use=False, factor=DEFAULT_FACTOR, t=T):
+def emissions_error(P_syn, P_real, time_of_use=False, factor=DEFAULT_FACTOR, t=T, shape=None):
     """Relative error of mean daily emissions, synthetic vs real (exploratory metric)."""
-    a = daily_emissions_kg(P_syn, factor, time_of_use, t).mean()
-    b = daily_emissions_kg(P_real, factor, time_of_use, t).mean()
+    a = daily_emissions_kg(P_syn, factor, time_of_use, t, shape).mean()
+    b = daily_emissions_kg(P_real, factor, time_of_use, t, shape).mean()
     if b == 0:
         raise ValueError("relative emissions error undefined for zero reference emissions")
     return float(abs(a - b) / b)
